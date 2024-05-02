@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Definición de variables de colores */
+:root {
+    --background: #1634c9db;
+    --text: #fff;
+    --text2: #000;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos del body */
+body {
+    background: url(https://github.com/J0NAS0SANCHEZ/MIDGARD_PROYECT/blob/main/Vista/img/fondo3.jpg?raw=true);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+/* Estilos del contenedor principal del formulario */
+.form-containet {
+    display: flex;
+    width: 1200px;
+    height: 700px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+/* Estilos de la columna izquierda */
+.col-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 55%;
+    background: rgba(255, 255, 255, 0.3);
+    background-repeat: blur(30px);
+    border-radius: 0 30% 20% 0;
+    transition: border-radius .3s;
+}
+
+/* Estilos de la capa de imagen */
+.image-layer {
+    position: relative;
+}
+
+/* Estilos de la imagen principal del formulario */
+.form-image-main {
+    width: 350px;
+    animation: scale-up 2s ease-in-out alternate infinite;
+}
+
+/* Estilos de la imagen del formulario */
+.form-image {
+    width: 400px;
+    position: absolute;
+    left: 0;
+}
+
+/* Animación para la primera imagen */
+.fi-1 {
+    animation: scale-down 2s ease-in-out alternate infinite;
+}
+
+/* Animación para la segunda imagen */
+.fi-2 {
+    animation: up-down 2s ease-in-out alternate infinite;
+}
+
+/* Keyframes para la animación scale-down */
+@keyframes scale-down {
+    to {
+        transform: translateX(20px);
+    }
+}
+
+/* Keyframes para la animación up-down */
+@keyframes up-down {
+    to {
+        transform: translateY(20px);
+    }
+}
+
+/* Estilos de la primera imagen del formulario */
+.form-image-1 {
+    width: 200px;
+    position: absolute;
+}
+
+/* Estilos de la segunda imagen del formulario */
+.form-image-2 {
+    width: 100px;
+    margin-left: 35px;
+}
+
+/* Estilos de la tercera imagen del formulario */
+.form-image-3 {
+    width: 90px;
+    left: 0;
+    position: absolute;
+}
+
+/* Estilos del texto destacado */
+.featured-words {
+    color: var(--text);
+    width: 300px;
+    text-align: center;
+}
+
+/* Estilos del span dentro del texto destacado */
+.featured-words span {
+    font-weight: 600;
+    color: var(--text2);
+}
+
+/* Estilos de la columna derecha */
+.col-2 {
+    position: relative;
+    width: 45%;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Estilos del contenedor de los botones */
+.btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos generales de los botones */
+.btn {
+    font-weight: 500;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .2s
+}
+
+/* Estilos del botón de inicio de sesión */
+.btn-1 {
+    background: var(--background);
+}
+
+/* Estilos de hover para los botones */
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Estilos del formulario de inicio de sesión */
+.login-form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 6vw;
+    transition: .3s;
+}
+
+/* Estilos del formulario de registro */
+.register-form {
+    position: absolute;
+    left: -50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 6vw;
+    transition: .3s;
+}
+
+/* Estilos del título del formulario de registro */
+.register-form .form-title {
+    margin-block: 40px 20px;
+}
+
+/* Estilos generales del título del formulario */
+.form-title {
+    margin: 40px 0;
+    color: var(--text);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Estilos del contenedor de los campos de entrada */
+.form-inputs {
+    width: 100%;
+}
+
+/* Estilos del contenedor de cada campo de entrada */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Estilos de los campos de entrada */
+.input-field {
+    width: 100%;
+    height: 40px;
+    padding: 0 35px 0 15px;
+    margin: 10px 0;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    outline: none;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del placeholder de los campos de entrada */
+::placeholder {
+    color: var(--text);
+    font-size: 15px;
+}
+
+/* Estilos de los iconos dentro de los campos de entrada */
+.input-box .icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: var(--text);
+}
+
+/* Estilos del enlace de "Olvidé mi contraseña" */
+.forget-pass {
+    display: flex;
+    justify-content: right;
+    gap: 14px;
+}
+
+.forget-pass a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forget-pass a:hover {
+    text-decoration: underline;
+}
+
+
+/*Estilo del boton de imagen*/
+/* Estilos para el botón de carga de archivos */
+.files {
+    border: 2px solid #ccc; /* Borde gris */
+    padding: 10px 15px; /* Espaciado interno */
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #333; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+  }
+  
+  /* Estilos para cuando el botón de carga de archivos está enfocado */
+  .files:focus {
+    outline: none; /* Elimina el contorno predeterminado */
+    border-color: #66afe9; /* Cambia el color del borde cuando está enfocado */
+  }
+  
+
+/* Estilos del botón de envío */
+.input-submit {
+    display: block; /* Cambiado a display: block */
+    width: 100%; /* Ancho del 100% */
+    height: 50px; /* Altura de 50px */
+    padding: 0 20px; /* Padding horizontal de 20px */
+    margin: 20px 0; /* Margen vertical de 20px */
+    color: var(--text); /* Color de texto */
+    background: var(--background); /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Radio de borde de 5px */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    cursor: pointer; /* Cursor de puntero */
+    transition: 0.3s; /* Transición suave */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que no quepa */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos cuando el texto no quepa */
+}
+
+/* Estilos de hover para el botón de envío */
+.input-submit:hover {
+    gap: 10px; /* Agrega un espacio de 10px entre el texto y el icono al hacer hover */
+}
+
+/* Estilos del contenedor de los iconos de inicio de sesión con redes sociales */
+.social-login {
+    display: flex; /* Disposición en línea */
+    gap: 20px; /* Espacio entre los iconos */
+    margin-top: 20px; /* Margen superior de 20px */
+}
+
+/* Estilos de los iconos de inicio de sesión con redes sociales */
+.social-login i {
+    display: flex; /* Disposición en línea */
+    align-items: center; /* Alineación vertical centrada */
+    justify-content: center; /* Alineación horizontal centrada */
+    height: 35px; /* Altura de 35px */
+    width: 35px; /* Ancho de 35px */
+    color: var(--text); /* Color de texto */
+    background: rgba(255, 255, 255, 0.2); /* Color de fondo */
+    border-radius: 50%; /* Radio de borde circular */
+    cursor: pointer; /* Cursor de puntero */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: 0.2s; /* Transición suave */
+}
+
+/* Estilos de hover para los iconos de inicio de sesión con redes sociales */
+.social-login i:hover {
+    transform: scale(0.8); /* Reduce el tamaño al 80% al hacer hover */
+}
+
+/* Estilos del icono de teléfono dentro de los campos de entrada */
+.input-box .bx-phone {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--text);
+}
+
+/* Estilos del icono de calendario dentro de los campos de entrada */
+.input-box .bx-calendar {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--text);
+}
+
+/* Estilos de las etiquetas de los campos de entrada */
+.form-inputs label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+/* Estilos para centrar el texto */
+.text-center {
+    text-align: center;
+}
+
+/* Estilos adicionales para la columna derecha */
+.col-2 {
+    position: relative;
+    width: 45%;
+    padding: 40px;
+    overflow: auto; /* Permite el desplazamiento si el contenido excede el tamaño */
+    -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer y Edge */
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+/* Estilos para ocultar la barra de desplazamiento en navegadores basados en WebKit */
+.col-2::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y Opera */
+}
+/* Estilos para Iconos del in */
+.form-inputs i{
+    align-items: center;
+    padding-top: 25px;
+}
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 892px) {
+    .form-containet {
+        width: 80%; /* Ajusta el ancho del contenedor del formulario al 80% */
+    }
+    .col-1 {
+        display: none; /* Oculta la columna izquierda */
+    }
+    .col-2 {
+        width: 100%; /* Ajusta el ancho de la columna derecha al 100% */
+    }
+}
