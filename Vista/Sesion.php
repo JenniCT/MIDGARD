@@ -1,8 +1,8 @@
-<!-- =================== login-form =================== -->
-<form action="" method="post">
-    <?php
-        include "../Modelo/verificarUsuario.php";
-    ?>
+<!-- login-form.php -->
+
+
+<form action="../Controlador/SesionC.php" method="post">
+    
     <div class="login-form">
         <div class="form-title">
             <span>Inicio de sesión</span>
@@ -26,4 +26,4 @@
             </div>
         </div>
     </div>
-</form
+</form>

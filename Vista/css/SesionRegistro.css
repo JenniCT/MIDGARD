@@ -17,7 +17,7 @@
 
 /* Estilos del body */
 body {
-    background: url(https://github.com/J0NAS0SANCHEZ/MIDGARD_PROYECT/blob/main/Vista/img/fondo3.jpg?raw=true);
+    background: url(../img/fondo3.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -272,14 +272,14 @@ body {
     color: #333; /* Color del texto */
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
-  }
-  
-  /* Estilos para cuando el botón de carga de archivos está enfocado */
-  .files:focus {
+}
+
+/* Estilos para cuando el botón de carga de archivos está enfocado */
+.files:focus {
     outline: none; /* Elimina el contorno predeterminado */
     border-color: #66afe9; /* Cambia el color del borde cuando está enfocado */
-  }
-  
+}
+
 
 /* Estilos del botón de envío */
 .input-submit {

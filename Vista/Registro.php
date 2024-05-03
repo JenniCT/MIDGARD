@@ -1,8 +1,5 @@
 <!-- =================== register-form =================== -->
-<form action="" method="post" enctype="multipart/form-data">
-    <?php
-        include "../Modelo/registrarUsuario.php";
-    ?>
+<form action="../Controlador/RegistroC.php" method="post" enctype="multipart/form-data">
     <div class="register-form">
         <div class="form-title">
             <span>Registrate</span>

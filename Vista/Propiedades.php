@@ -88,7 +88,7 @@ $conexion->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../Vista/css/Miinfo.css">
+    <link rel="stylesheet" href="../Vista/css/Contenido.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
     <title>Mis propiedades</title>
     <style>
@@ -105,35 +105,6 @@ $conexion->close();
 
 </head>
 <body>
-    <header>
-        <div class="content">
-            <div class="menu container">
-                <!-- <a href="#" class="logo">logo</a> -->
-                <img src="../Vista/img/logo.png" class="logo"><a href="index.php"></a></img>
-                <input type="checkbox" id="menu">
-                <label for="menu">
-                    <img src="../Vista/img/menu-hamburguesa.png" alt="" class="menu-icono">
-                </label>
-
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="index.php">Inicio</a></li>
-                        <li><a href="#">Catalogo</a></li>
-                        <li><a href="#">Contactanos</a></li>
-                        <li><a href="#">Quienes Somos</a></li>
-                        <li><a href="Vista/SesionRegistro.php">Registrate/Inicia Sesion</a></li>
-                        <div class="search-box">
-                            <input type="text" placeholder="¿Que estas buscando?">
-                            <button><i class="fa fa-search"></i></button>
-
-                        </div>
-
-                    </ul>
-                </nav>
-
-            </div>
-        </div>
-    </header>
 
     <div class="lateral">
         <p>Hola, <?php echo $correo; ?></p>
@@ -141,13 +112,13 @@ $conexion->close();
             <?php if (!empty($imagen_base64)): ?>
                 <img src="data:imagen/jpeg;base64,<?php echo $imagen_base64; ?>" alt="Imagen de perfil">
             <?php else: ?>
-                <p>No se encontró la imagen del usuario.</p>
+                <img src="../Vista/img/Usuario.png" alt="">
             <?php endif; ?>
         </div> 
         <!-- Agregar nombre del usuario y su foto de perfil-->
         <div class="acc">
             <ul>
-                <li><a href="subircasa.php">Queiro vender  <i class="fa-solid fa-tag"></i> </a> </li>
+                <li><a href="subircasa.php">Quiero vender  <i class="fa-solid fa-tag"></i> </a> </li>
                 <li><a href="Propiedades.php">Mis Propiedades  <i class="fa-solid fa-house"></i></a></li>
                 <li><a href="misventas.html">Mis Ventas  <i class="fa-solid fa-wallet"></i></a></li>
                 <li><a href="Miinfo.php">Mi Informacion  <i class="fa-solid fa-user"></i> </a></li>
