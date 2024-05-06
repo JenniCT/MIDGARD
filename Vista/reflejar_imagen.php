@@ -41,7 +41,7 @@ if ($resultado && $resultado->num_rows > 0) {
 $conexion->close();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-Mex">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

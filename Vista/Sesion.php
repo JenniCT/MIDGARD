@@ -1,6 +1,4 @@
 <!-- login-form.php -->
-
-
 <form action="../Controlador/SesionC.php" method="post">
     
     <div class="login-form">
@@ -24,6 +22,19 @@
                     <i class="bx bx-right-arrow-alt"></i>
                 </button>
             </div>
+        </div>
+        <!-- Área para mostrar mensajes -->
+        <div class="message">
+            <?php
+            if (isset($_GET['error'])) {
+                $error = $_GET['error'];
+                if ($error === 'password') {
+                    echo "<p>Contraseña incorrecta</p>";
+                } elseif ($error === 'email') {
+                    echo "<p>El correo proporcionado no existe</p>";
+                }
+            }
+            ?>
         </div>
     </div>
 </form>

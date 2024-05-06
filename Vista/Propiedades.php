@@ -7,13 +7,15 @@ if (!isset($_SESSION['correo'])) {
     exit();
 }
 
-// Establecer conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "i27bg2hhV_", "midgard");
+ $config = require __DIR__ . '/../config.php';
+$conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
 
-// Verificar si la conexión fue exitosa
-if ($conexion->connect_error) {
-    die("La conexión falló: " . $conexion->connect_error);
+
+
+if($conexion->connect_error){
+    die(json_encode(['success' => false, 'message' => 'La conexión falló: '. $conexion->connect_error]));
 }
+
 
 // Obtener el correo del usuario desde la sesión
 $correo = $_SESSION['correo'];
@@ -27,7 +29,6 @@ if ($result_idUsuario && $result_idUsuario->num_rows > 0) {
     $row_idUsuario = $result_idUsuario->fetch_assoc();
     $idUsuario = $row_idUsuario['idUsuario'];
 
-    // Construir la consulta SQL con el idUsuario
     $sql = "SELECT Tipo, Direccion, Estado, Pais, Capacidad, NoHabitaciones, NoBanos, Tamano, Precio, Servicios, Condicion, Caracteristicas, Disponibilidad, Contrato, imgPropiedad FROM Propiedades WHERE IdVendedor = '$idUsuario'";
 
     // Ejecutar la consulta
@@ -107,7 +108,7 @@ $conexion->close();
 <body>
 
     <div class="lateral">
-        <p>Hola, <?php echo $correo; ?></p>
+        <p>Hola, <?php echo $idUsuario; ?></p>
         <div class="fotoperf">
             <?php if (!empty($imagen_base64)): ?>
                 <img src="data:imagen/jpeg;base64,<?php echo $imagen_base64; ?>" alt="Imagen de perfil">
@@ -122,7 +123,7 @@ $conexion->close();
                 <li><a href="Propiedades.php">Mis Propiedades  <i class="fa-solid fa-house"></i></a></li>
                 <li><a href="misventas.html">Mis Ventas  <i class="fa-solid fa-wallet"></i></a></li>
                 <li><a href="Miinfo.php">Mi Informacion  <i class="fa-solid fa-user"></i> </a></li>
-                <li><a href="../Modelo/cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="../Modelo/Cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
         </div>
     </div>

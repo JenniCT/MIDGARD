@@ -15,26 +15,41 @@ class SesionController {
             die(json_encode(['success' => false, 'message' => 'La conexión falló: '. $conexion->connect_error]));
         }
 
-        $usuarioModelo = new Usuario($conexion);
+        $sesionModelo = new Sesion($conexion);
 
-        $usuario = $usuarioModelo->verificarUsuario($vcorreo, $vcontrasena);
+        // Verificar si el correo existe en la base de datos
+        $existeCorreo = $sesionModelo->existeCorreo($vcorreo);
 
-        if ($usuario) {
-            $_SESSION['mensaje'] = 'BIENVENIDO';
-            $_SESSION['correo'] = $usuario['Correo'];
-            $_SESSION['imagen'] = isset($usuario['imagen']) && !empty($usuario['imagen']) ? $usuario['imagen'] : '';
-        } else {
-            // Verificar si el correo existe en la base de datos
-            $existeCorreo = $usuarioModelo->existeCorreo($vcorreo);
-            if ($existeCorreo) {
-                $_SESSION['mensaje'] = 'CONTRASEÑA INCORRECTA';
+        if ($existeCorreo) {
+            // El correo existe, intentamos autenticar al usuario
+            $mensaje = $sesionModelo->autenticarUsuario($vcorreo, $vcontrasena);
+
+            // Redireccionar según el mensaje de autenticación
+            if ($mensaje === 'BIENVENIDO') {
+                // Obtener el idUsuario del usuario autenticado
+                $idUsuario = $sesionModelo->obtenerIdUsuario($vcorreo);
+                if ($idUsuario) {
+                    // Guardar el idUsuario en la sesión
+                    $_SESSION['idUsuario'] = $idUsuario;
+                    header("Location: ../Vista/Miinfo.php");
+                    exit();
+                } else {
+                    // No se pudo obtener el idUsuario
+                    header("Location: ../Vista/SesionRegistro.php");
+                    exit();
+                }
             } else {
-                $_SESSION['mensaje'] = 'El correo proporcionado no existe';
+                // Contraseña incorrecta
+                header("Location: ../Vista/SesionRegistro.php?error=password");
+                exit();
             }
+            
+        } else {
+            // El correo proporcionado no existe
+        
+            header("Location: ../Vista/SesionRegistro.php?error=email");
+            exit();
         }
-
-        echo "<script>window.onload = function() { alert('".$_SESSION['mensaje']."'); window.location.href = '../Vista/" . ($usuario ? "Miinfo.php" : "SesionRegistro.php") . "'; }</script>";
-        exit();
 
         $conexion->close();
     }

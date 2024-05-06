@@ -3,30 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stylevendedor.css">
+    <link rel="stylesheet" href="../Vista/css/Contenido.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="img/logo.png" class="logo"></img>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#">Catalogo</a></li>
-                    <li><a href="#">Contactanos</a></li>
-                    <li><a href="#">Quienes Somos</a></li>
-                    <li><a href="#">Registrate/Inicia Sesion</a></li>
-                    <i class="fas fa-times"></i>
-                </ul>
-                <i class="fas fa-bars"></i>
-
-            </nav>
-        </div>
-    </div>
+    
     <?php
-        include '../modelo/reflejarImagen.php';
+        include '../Modelo/reflejarImagen.php';
     ?>
 
     <div class="lateral">
@@ -45,7 +29,7 @@
                 <li><a href="Propiedades.php">Mis Propiedades  <i class="fa-solid fa-house"></i></a></li>
                 <li><a href="misventas.html">Mis Ventas  <i class="fa-solid fa-wallet"></i></a></li>
                 <li><a href="miinfo.php">Mi Informacion  <i class="fa-solid fa-user"></i> </a></li>
-                <li><a href="../modelo/cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="../Modelo/Cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
         </div>
     </div>

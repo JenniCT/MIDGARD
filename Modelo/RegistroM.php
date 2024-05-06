@@ -14,10 +14,10 @@ class Registro {
         if($resultado->num_rows > 0) {
             return "Ya existe un usuario con ese correo";
         } else {
-            // Encriptar la contraseña antes de almacenarla
+            // Encriptamos la contraseña antes de almacenarla
             $contrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
-            // Si no existe un usuario con las características anteriores insertamos los datos
+            // Insertamos los datos del usuario sin la foto
             $consulta = "INSERT INTO Usuario (Nombre, aPaterno, aMaterno, Correo, Contrasena, Telefono, FchNacimiento) 
                 VALUES ('$nombre', '$aPaterno', '$aMaterno', '$correo', '$contrasenaEncriptada', '$telefono', '$fechaNacimiento')";
                 
@@ -28,6 +28,5 @@ class Registro {
             }
         }
     }
-
 }
 ?>
