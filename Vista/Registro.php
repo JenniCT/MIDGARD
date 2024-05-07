@@ -2,7 +2,7 @@
 <form action="../Controlador/RegistroC.php" method="post" enctype="multipart/form-data">
     <div class="register-form">
         <div class="form-title">
-            <span>Registrate</span>
+            <span>Regístrate</span>
         </div>
         <div class="form-inputs">
             <div class="input-box mb-3">
@@ -24,6 +24,7 @@
                 <label for="correo" class="form-label">Correo electrónico:</label>
                 <input type="email" id="correo" name="correo" class="input-field form-control" maxlength="50" required>
                 <i class='bx bx-envelope icon'></i>
+                
             </div>
             <div class="input-box mb-3">
                 <label for="contraseña" class="form-label">Contraseña:</label>
@@ -40,9 +41,9 @@
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="input-field form-control" required>
                 <!-- <i class='bx bx-calendar icon'></i> -->
             </div>
-            <div class="input-box mb-3 ">
+            <!-- <div class="input-box mb-3 ">
                 <input class="files"  type="file" name="imagen" id="">
-            </div>
+            </div> -->
             <div class="input-box text-center">
                 <button type="submit" class="input-submit btn btn-primary btn-block">
                     <span>Registrar</span>

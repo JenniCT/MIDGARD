@@ -1,119 +1,33 @@
-<?php
-session_start(); // Iniciar sesión para acceder a $_SESSION
-
-// Verificar si se ha iniciado sesión
-if (!isset($_SESSION['correo'])) {
-    header("Location: ../Vista/SesionRegistro.php"); // Redirigir a la página de inicio de sesión si no se ha iniciado sesión
-    exit();
-}
-
- $config = require __DIR__ . '/../config.php';
-$conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
-
-
-
-if($conexion->connect_error){
-    die(json_encode(['success' => false, 'message' => 'La conexión falló: '. $conexion->connect_error]));
-}
-
-
-// Obtener el correo del usuario desde la sesión
-$correo = $_SESSION['correo'];
-
-// Consultar el idUsuario basado en el correo electrónico
-$sql_idUsuario = "SELECT idUsuario FROM Usuario WHERE Correo = '$correo'";
-$result_idUsuario = $conexion->query($sql_idUsuario);
-
-if ($result_idUsuario && $result_idUsuario->num_rows > 0) {
-    // Obtener el idUsuario
-    $row_idUsuario = $result_idUsuario->fetch_assoc();
-    $idUsuario = $row_idUsuario['idUsuario'];
-
-    $sql = "SELECT Tipo, Direccion, Estado, Pais, Capacidad, NoHabitaciones, NoBanos, Tamano, Precio, Servicios, Condicion, Caracteristicas, Disponibilidad, Contrato, imgPropiedad FROM Propiedades WHERE IdVendedor = '$idUsuario'";
-
-    // Ejecutar la consulta
-    $resultado = $conexion->query($sql);
-
-    // Variable para almacenar la información de las propiedades
-    $propiedades_html = '';
-
-    // Verificar si hay propiedades
-    if ($resultado && $resultado->num_rows > 0) {
-        // Construir la información de las propiedades
-        while ($row = $resultado->fetch_assoc()) {
-            // Comienza la tarjeta de propiedad
-            $propiedades_html .= "<div class='Tarjeta'>";
-            $propiedades_html .= "<h4>Tipo: " . $row['Tipo'] . "</h4>";
-            $propiedades_html .= "<h4>Dirección: " . $row['Direccion'] . "</h4>";
-            $propiedades_html .= "<h4>Estado: " . $row['Estado'] . "</h4>";
-            $propiedades_html .= "<h4>País: " . $row['Pais'] . "</h4>";
-            $propiedades_html .= "<h4>Capacidad de personas: " . $row['Capacidad'] . "</h4>";
-            $propiedades_html .= "<h4>No. de Habitaciones: " . $row['NoHabitaciones'] . "</h4>";
-            $propiedades_html .= "<h4>Baños: " . $row['NoBanos'] . "</h4>";
-            $propiedades_html .= "<h4>Tamaño: " . $row['Tamano'] . "</h4>";
-            $propiedades_html .= "<h4>Precio: " . $row['Precio'] . "</h4>";
-            $propiedades_html .= "<h4>Servicio: " . $row['Servicios'] . "</h4>";
-            $propiedades_html .= "<h4>Condicion: " . $row['Condicion'] . "</h4>";
-            $propiedades_html .= "<h4>Caracteristicas: " . $row['Caracteristicas'] . "</h4>";
-            $propiedades_html .= "<h4>Disponibilidad: " . $row['Disponibilidad'] . "</h4>";
-            $propiedades_html .= "<h4>Contrato: " . $row['Contrato'] . "</h4>";
-            // Mostrar la imagen
-            
-            if ($row['imgPropiedad'] !== null) {
-                $imagen_base64 = base64_encode($row['imgPropiedad']);
-                $imagen_src = 'data:image/jpeg;base64,'.$imagen_base64;
-                $propiedades_html .= "<img  src='" . $imagen_src . "' alt='Imagen de la propiedad'>";
-            } else {
-                $propiedades_html .= "<p>No hay imagen disponible para esta propiedad.</p>";
-            }
-            
-            // Cierra la tarjeta de propiedad
-            $propiedades_html .= "</div>";
-        }
-    } else {
-        // Si no hay propiedades
-        $propiedades_html .= "<p>No se encontraron propiedades para este usuario.</p>";
-    }
-} else {
-    // Si no se pudo obtener el idUsuario
-    $propiedades_html .= "<p>No se pudo obtener el ID de usuario de la sesión.</p>";
-}
-
-// Cerrar conexión
-$conexion->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Mis propiedades</title>
     <link rel="stylesheet" href="../Vista/css/Contenido.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
-    <title>Mis propiedades</title>
     <style>
         .Tarjeta{
             border: 1px solid black;
             width: auto;
             padding: 10px;
-            
         }
         img{
             width: 30%;
         }
     </style>
-
 </head>
 <body>
-
+    <?php
+        include '../Controlador/DatosUsuarioC.php';
+    ?>
     <div class="lateral">
-        <p>Hola, <?php echo $idUsuario; ?></p>
+        <p>Hola, <?php echo isset($datosUsuario['idUsuario']) ? $datosUsuario['idUsuario'] : ''; ?></p>
         <div class="fotoperf">
             <?php if (!empty($imagen_base64)): ?>
                 <img src="data:imagen/jpeg;base64,<?php echo $imagen_base64; ?>" alt="Imagen de perfil">
             <?php else: ?>
-                <img src="../Vista/img/Usuario.png" alt="">
+                <img src="img/user-image.png" alt="Yo poni mi imagen aki">
             <?php endif; ?>
         </div> 
         <!-- Agregar nombre del usuario y su foto de perfil-->
@@ -130,9 +44,20 @@ $conexion->close();
     <div class="Adentro">
         <div class="portafolio">
             <div class="container">
-                <div class="propiedades">
-                    <?php echo $propiedades_html; ?>
-                </div>
+            <div class="propiedades">
+            <h1>Mis Propiedades</h1>
+            <?php if (!empty($propiedades)) : ?>
+                <ul>
+                    <?php foreach ($propiedades as $propiedad) : ?>
+                        <li><?php echo $propiedad['nombre']; ?></li>
+                        <!-- Agregar más detalles de la propiedad según tu estructura de datos -->
+                    <?php endforeach; ?>
+                </ul>
+            <?php else : ?>
+                <p>No tienes propiedades registradas.</p>
+            <?php endif; ?>
+            </div>
+
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@
     position: fixed; /* Mantener el contenedor en su lugar */
     top: 0;
     left: 0;
-    width: 200px;
+    width: 20%;
     height: 100vh; /* Altura del viewport */
     background-color: #333;
     text-align: center;
@@ -63,20 +63,19 @@
 
 .Adentro {
     margin-left: 200px;
-    height: 525px; /* Altura restante después de restar el encabezado y el contenedor .lateral */
+    
     overflow: auto;
     background-color: #f2f2f2;
-    padding: 20px;
     font-family: "Courier Prime", monospace;
     font-weight: 400;
     font-style: normal;
-    padding: 60px;
+    width: 80%;
 }
   /* Estilos para el formulario de registro */
 .Adentro .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    
 }
 
 .Adentro h2 {
@@ -148,7 +147,7 @@
 
     .Adentro {
         margin-left: 0; /* Eliminar el margen izquierdo */
-        height: auto; /* Altura automática */
+    
     }
 
     .search-box {

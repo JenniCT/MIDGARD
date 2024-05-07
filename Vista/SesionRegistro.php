@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +10,7 @@
 </head>
 
 <body>
+    ?>
     <div class="form-containet">
         <div class="col col-1">
             <div class="image-layer">
@@ -35,6 +34,8 @@
             <?php
                 include "Registro.php";
             ?>
+            
+            
     <script src="../Vista/js/SesionRegistro.js"></script>
 </body>
 

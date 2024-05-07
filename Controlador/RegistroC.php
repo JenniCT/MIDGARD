@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 require_once("../Modelo/RegistroM.php");
+require_once("../Modelo/SesionM.php");
 
 class RegistroController {
     public static function registrarUsuario() {
@@ -22,21 +22,26 @@ class RegistroController {
             $telefono = $_POST['telefono'];
             $fechaNacimiento = $_POST['fechaNacimiento'];
 
-            $registro = new Registro($conexion);
-            $mensaje = $registro->registrarUsuario($nombre, $aPaterno, $aMaterno, $correo, $contrasena, $telefono, $fechaNacimiento);
+            $sesion = new Sesion($conexion); // Instancia un objeto de la clase Sesion
+            $existeCorreo = $sesion->existeCorreo($correo); // Llama al método existeCorreo()
 
-            // Si el mensaje es de correo ya registrado, lo mostramos en la misma página
-            if ($mensaje === "Ya existe un usuario con ese correo") {
-                echo "<script>alert('".$mensaje."');</script>";
-                echo "<script>window.location.href = '../Vista/SesionRegistro.php';</script>";
-            } elseif (strpos($mensaje, 'Error') !== false) {
-                // Si ocurre algún otro error, mostramos el mensaje de error en la misma página
-                echo "<script>alert('".$mensaje."');</script>";
-            } else {
-                // Si el registro es exitoso, redirigimos a miinfo.php
-                // header("Location: ../Vista/Miinfo.php");
-                echo "<script>window.location.href = '../Vista/TipoUsuario.php';</script>";
+            if ($existeCorreo) {
+                // Si el correo ya existe, redireccionar a la página de inicio de sesión
+                echo "<script>alert('Ya existe un usuario con ese correo');</script>";
+                header("Location: ../Vista/SesionRegistro.php");
                 exit();
+            } else {
+                // Si el correo no existe, continuar con el registro
+                $registro = new Registro($conexion); // Instancia un objeto de la clase Registro
+                $mensaje = $registro->registrarUsuario($nombre, $aPaterno, $aMaterno, $correo, $contrasena, $telefono, $fechaNacimiento);
+                
+                // Redireccionar según el mensaje del registro
+                if ($mensaje === "Usuario agregado correctamente.") {
+                    header("Location: ../Vista/TipoUsuario.php");
+                    exit();
+                } else {
+                    echo $mensaje; // Manejo de errores si es necesario
+                }
             }
 
             // Cerramos la conexión después de utilizarla
