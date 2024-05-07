@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midgard</title>
-    <link rel="stylesheet" href="Vista/css/style.css">
-    <link rel="stylesheet" href="Vista/css/index.css">
+    <link rel="stylesheet" href="../Vista/css/style.css">
+    <link rel="stylesheet" href="../Vista/css/index.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
 </head>
 
@@ -41,3 +41,9 @@
             </div>
         </div>
     </header>
+    <Section class="sectionhead">
+        <div class="header-text">
+            <p>Haciendo Sueños Realidad</p>
+            <h1>Bienvenido a<span> Midgard</span><br>Inmoviliarias</h1>
+        </div>
+    </Section>
