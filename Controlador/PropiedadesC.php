@@ -5,37 +5,60 @@ require_once("../Modelo/DatosUsuarioM.php");
 
 class ControladorPropiedades {
     private $conexion;
-    private $propiedad;
+    private $AgregarPropiedad;
 
     public function __construct($conexion) {
         $this->conexion = $conexion;
-        $this->propiedad = new Propiedad($conexion);
+        $this->AgregarPropiedad = new AgregarPropiedad($conexion);
     }
 
-    public function mostrarPropiedades() {
-        session_start();
-        // Obtener datos del usuario actual
-        $idUsuario = $_SESSION['idUsuario'];
-        $actualizacionModelo = new Usuario($conexion);
-        $datosUsuario = $actualizacionModelo->obtenerDatosUsuario($idUsuario);
-
-        // Verificar si el usuario ha iniciado sesión
-        if (!isset($_SESSION['idUsuario'])) {
-            header("Location: ../Vista/Sesion.php");
-            exit();
-        }
-
-        $idUsuario = $_SESSION['idUsuario'];
-
-        // Obtener las propiedades del usuario
-        $propiedades = $this->propiedad->obtenerPropiedadesUsuario($idUsuario);
-
-        // Incluir la vista
-        require_once '../Vista/Propiedades.php';
+    public function agregarPropiedad($idUsuario, $tipo, $direccion, $estado, $pais, $capacidad, $habitaciones, $banos, $tamano, $precio, $servicios, $condicion, $caracteristicas, $disponibilidad, $contrato, $imagen) {
+        return $this->modeloAgregarPropiedad->agregarPropiedad($idUsuario, $tipo, $direccion, $estado, $pais, $capacidad, $habitaciones, $banos, $tamano, $precio, $servicios, $condicion, $caracteristicas, $disponibilidad, $contrato, $imagen);
     }
+    
 }
+// Verificar si se ha iniciado sesión
+if (!isset($_SESSION['correo'])) {
+    header("Location: ../Vista/SesionRegistro.php");
+    exit();
+}
+// Obtener el ID de usuario desde la sesión
+$idUsuario = $_SESSION['idUsuario'];
 
-// Crear instancia del controlador y llamar al método correspondiente
-$controlador = new ControladorPropiedades(new mysqli($config['servername'], $config['username'], $config['password'], $config['database']));
-$controlador->mostrarPropiedades();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recibir los datos del formulario
+    $tipo = $_POST['tipo'];
+    $direccion = $_POST['direccion'];
+    $estado = $_POST['estado'];
+    $pais = $_POST['pais'];
+    $capacidad = $_POST['capacidad'];
+    $habitaciones = $_POST['habitaciones'];
+    $banos = $_POST['banos'];
+    $tamano = $_POST['tamano'];
+    $precio = $_POST['precio'];
+    $servicios = $_POST['servicios'];
+    $condicion = $_POST['condicion'];
+    $caracteristicas = $_POST['caracteristicas'];
+    $disponibilidad = $_POST['disponibilidad'];
+    $contrato = $_POST['contrato'];
+    $imagen = $_FILES['imagen']['tmp_name']; // Aquí asumo que estás recibiendo la imagen desde un formulario
+
+    // Crear instancia del controlador
+    $controlador = new ControladorAgregarPropiedad(new mysqli($config['servername'], $config['username'], $config['password'], $config['database']));
+
+    // Agregar la propiedad
+    $idPropiedad = $controlador->agregarPropiedad($idUsuario, $tipo, $direccion, $estado, $pais, $capacidad, $habitaciones, $banos, $tamano, $precio, $servicios, $condicion, $caracteristicas, $disponibilidad, $contrato, $imagen);
+
+    if ($idPropiedad) {
+        echo "Propiedad agregada con éxito. ID de la propiedad: " . $idPropiedad;
+    } else {
+        echo "Error al agregar la propiedad.";
+    }
+} else {
+    // Si no es una solicitud POST, redirigir a la página de inicio
+    header("Location: ../Vista/AgregarPropiedad.php");
+    exit();
+}
+?>
+
 ?>

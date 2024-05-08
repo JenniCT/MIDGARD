@@ -38,28 +38,30 @@
                 <li><a href="misventas.html">Mis Ventas  <i class="fa-solid fa-wallet"></i></a></li>
                 <li><a href="Miinfo.php">Mi Informacion  <i class="fa-solid fa-user"></i> </a></li>
                 <li><a href="../Modelo/Cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="../Vista/subircasa.php">Agregar usuario</a></li>
             </ul>
         </div>
     </div>
     <div class="Adentro">
         <div class="portafolio">
             <div class="container">
-            <div class="propiedades">
-            <h1>Mis Propiedades</h1>
-            <?php if (!empty($propiedades)) : ?>
-                <ul>
-                    <?php foreach ($propiedades as $propiedad) : ?>
-                        <li><?php echo $propiedad['nombre']; ?></li>
-                        <!-- Agregar más detalles de la propiedad según tu estructura de datos -->
-                    <?php endforeach; ?>
-                </ul>
-            <?php else : ?>
-                <p>No tienes propiedades registradas.</p>
-            <?php endif; ?>
-            </div>
+                <div class="propiedades">
+                <h1>Mis Propiedades</h1>
+                <?php if (!empty($propiedades)) : ?>
+                    <ul>
+                        <?php foreach ($propiedades as $propiedad) : ?>
+                            <li><?php echo $propiedad['nombre']; ?></li>
+                            <!-- Agregar más detalles de la propiedad según tu estructura de datos -->
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <p>No tienes propiedades registradas.</p>
+                <?php endif; ?>
+                </div>
 
             </div>
         </div>
     </div>
+    
 </body>
 </html>

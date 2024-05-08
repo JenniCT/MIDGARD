@@ -9,19 +9,19 @@
 </head>
 <body>
     
+    
     <?php
-        include '../Modelo/reflejarImagen.php';
+        include '../Controlador/DatosUsuarioC.php';
     ?>
-
     <div class="lateral">
-        <p>Hola, <?php echo $correo; ?></p>
+        <p>Hola, <?php echo isset($datosUsuario['idUsuario']) ? $datosUsuario['idUsuario'] : ''; ?></p>
         <div class="fotoperf">
             <?php if (!empty($imagen_base64)): ?>
                 <img src="data:imagen/jpeg;base64,<?php echo $imagen_base64; ?>" alt="Imagen de perfil">
             <?php else: ?>
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="">
+                <img src="img/user-image.png" alt="Yo poni mi imagen aki">
             <?php endif; ?>
-        </div>
+        </div> 
             <!-- Agregar nombre del usuario y su foto de perfil-->
         <div class="acc">
             <ul>
@@ -36,27 +36,40 @@
     <div class="Adentro">
         <div class="container">
             <h2>Registro de inmueble</h2>
-            <form action="" method="post">
+            <form action="../Controlador/PropiedadesC.php" method="POST" enctype="multipart/form-data">
+                <label for="tipo">Tipo:</label>
+                <input type="text" name="tipo"><br>
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion"><br>
+                <label for="estado">Estado:</label>
+                <input type="text" name="estado"><br>
+                <label for="pais">País:</label>
+                <input type="text" name="pais"><br>
+                <label for="capacidad">Capacidad:</label>
+                <input type="number" name="capacidad"><br>
+                <label for="habitaciones">Número de Habitaciones:</label>
+                <input type="number" name="habitaciones"><br>
+                <label for="banos">Baños:</label>
+                <input type="number" name="banos"><br>
+                <label for="tamano">Tamaño:</label>
+                <input type="number" name="tamano"><br>
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio"><br>
+                <label for="servicios">Servicios:</label>
+                <input type="text" name="servicios"><br>
+                <label for="condicion">Condición:</label>
+                <input type="text" name="condicion"><br>
+                <label for="caracteristicas">Características:</label>
+                <input type="text" name="caracteristicas"><br>
+                <label for="disponibilidad">Disponibilidad:</label>
+                <input type="text" name="disponibilidad"><br>
+                <label for="contrato">Contrato:</label>
+                <input type="text" name="contrato"><br>
                 <label for="foto">Foto:</label>
                 <input type="file" id="foto" name="foto" accept="image/*" onchange="mostrarVistaPrevia(this)" required>
                 <div id="imagenPreviaContainer">
                     <img id="imagenPrevia" src="#" alt="Vista previa de la imagen">
                 </div>
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" name="direccion" required>
-    
-                <label for="habitaciones">Número de Habitaciones:</label>
-                <input type="number" id="habitaciones" name="habitaciones" required>
-    
-                <label for="banos">Número de Baños:</label>
-                <input type="number" id="banos" name="banos" required>
-    
-                <label for="precio">Precio:</label>
-                <input type="number" id="precio" name="precio" required>
-    
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-    
                 <input type="submit" value="Guardar">
             </form>
         </div>

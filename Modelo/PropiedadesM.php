@@ -6,20 +6,13 @@ class Propiedad {
         $this->conexion = $conexion;
     }
 
-    public function obtenerPropiedadesUsuario($idUsuario) {
-        $sql = "SELECT * FROM Propiedades WHERE IdVendedor ='$idUsuario' ";
+    public function agregarPropiedad($idUsuario, $tipo, $direccion, $estado, $pais, $capacidad, $habitaciones, $banos, $tamano, $precio, $servicios, $condicion, $caracteristicas, $disponibilidad, $contrato, $imagen) {
+        $sql = "INSERT INTO Propiedades (IdVendedor, Tipo, Direccion, Estado, Pais, Capacidad, NoHabitaciones, NoBanos, Tamano, Precio, Servicios, Condicion, Caracteristicas, Disponibilidad, Contrato, imgPropiedad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("s", $idUsuario);
+        $stmt->bind_param("issssiississssss", $idUsuario, $tipo, $direccion, $estado, $pais, $capacidad, $habitaciones, $banos, $tamano, $precio, $servicios, $condicion, $caracteristicas, $disponibilidad, $contrato, $imagen);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        $propiedades = [];
-        while ($row = $result->fetch_assoc()) {
-            $propiedades[] = $row;
-        }
-
         $stmt->close();
-        return $propiedades;
+        return $this->conexion->insert_id;
     }
 }
 ?>
