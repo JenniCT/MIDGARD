@@ -25,9 +25,9 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="#">Catalogo</a></li>
-                        <li><a href="#">Contactanos</a></li>
-                        <li><a href="#">Quienes Somos</a></li>
+                        <li><a href="Vista/Catalogo.php">Catalogo</a></li>
+                        <li><a href="Vista/Contactanos.php">Contactanos</a></li>
+                        <li><a href="Vista/QuienesSomos.php">Quienes Somos</a></li>
                         <li><a href="Vista/SesionRegistro.php">Registrate/Inicia Sesion</a></li>
                         <div class="search-box">
                             <input type="text" placeholder="¿Que estas buscando?">

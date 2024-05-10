@@ -1,7 +1,13 @@
 <?php
 require('../Vista/layout/header.php');
 ?>
-
+    <Section class="section head">
+        <div class="header-text">
+            <p>Haciendo Sueños Realidad</p>
+            <h1>Bienvenido a<span> Midgard</span><br>Inmoviliarias</h1>
+        </div>
+    </Section>
+    
 <div class="containercasa">
             <section class="grid_cards">
                 <article class="card_ui">
