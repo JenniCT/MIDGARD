@@ -26,7 +26,7 @@ class ControladorPropiedades {
             $idVendedor = $_SESSION['idUsuario']; // Cambiado a 'idVendedor' según el formulario HTML
 
             // Recibir los datos del formulario
-            $Tipo = $_POST['Tipo'];
+            $Tipo = isset($_POST['Tipo']) ? $_POST['Tipo']: '';
             $Direccion = $_POST['Direccion'];
             $Pais = $_POST['Pais'];
             $Estado = $_POST['Estado'];
