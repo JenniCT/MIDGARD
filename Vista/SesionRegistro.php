@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-Mex">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    ?>
     <div class="form-containet">
         <div class="col col-1">
             <div class="image-layer">
@@ -36,7 +35,7 @@
             ?>
             
             
-    <script src="../Vista/js/SesionRegistro.js"></script>
+    <script src="js/SesionRegistro.js"></script>
 </body>
 
 </html>

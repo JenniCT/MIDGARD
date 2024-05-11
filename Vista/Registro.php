@@ -1,4 +1,4 @@
-<!-- =================== register-form =================== -->
+
 <form action="../Controlador/RegistroC.php" method="post" enctype="multipart/form-data">
     <div class="register-form">
         <div class="form-title">

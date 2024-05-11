@@ -28,7 +28,7 @@ class RegistroController {
             if ($existeCorreo) {
                 // Si el correo ya existe, redireccionar a la página de inicio de sesión
                 echo "<script>alert('Ya existe un usuario con ese correo');</script>";
-                header("Location: ../Vista/SesionRegistro.php");
+                header("Location: ../Vista/Usuario/SesionRegistro.php");
                 exit();
             } else {
                 // Si el correo no existe, continuar con el registro
@@ -37,6 +37,10 @@ class RegistroController {
                 
                 // Redireccionar según el mensaje del registro
                 if ($mensaje === "Usuario agregado correctamente.") {
+                    session_start();
+                    // Guardamos el correo del usuario en la sesión
+                    $_SESSION['correo'] = $correo;
+                    
                     header("Location: ../Vista/TipoUsuario.php");
                     exit();
                 } else {

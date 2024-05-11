@@ -1,13 +1,13 @@
 <?php
-    include 'Vista/layout/header.php';
+include "../Modelo/verificacionTipoImg.php";
+    
 ?>
-</style>
-    <section class="section head">
+    <Section>
         <div class="header-text">
             <p>Haciendo Sueños Realidad</p>
             <h1>Bienvenido a<span> Midgard</span><br>Inmoviliarias</h1>
         </div>
-    </section>
+    </Section>
     <!-- ----------SERVICES---------- -->
     <div id="services">
         <div class="container">
@@ -86,5 +86,5 @@
     </div>
     
 <?php
-require('../Vista/layout/footer.php');
+require('layout/footer.php');
 ?>

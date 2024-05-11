@@ -1,5 +1,5 @@
 <?php
-require('../Vista/layout/header.php');
+    include '../Vista/layout/header.php';
 ?>
 
 <div class="containercasa">
@@ -14,7 +14,7 @@ require('../Vista/layout/header.php');
                     </div>
                     <div class="car_body">
                         <div class="car_body_img_container">
-                            <a href="#" class="car_img_content_link">
+                            <a href="../Vista/SesionRegistro.php" class="car_img_content_link">
                                 <figure class="car_img_content">
                                     <img src="../Vista/img/fondo1.jpg" alt="Ford Focus"> <!-- Poner aqui foto de la casa -->
                                 </figure>
@@ -54,4 +54,5 @@ require('../Vista/layout/header.php');
 require('../Vista/layout/footer.php');
 ?>
 
-
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es_Mex">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,7 @@
     <title>Midgard</title>
     <link rel="stylesheet" href="Vista/css/style.css">
     <link rel="stylesheet" href="Vista/css/index.css">
+    <link rel="stylesheet" href="Vista/css/Catalogo.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
 </head>
 
@@ -25,9 +26,9 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="#">Catalogo</a></li>
-                        <li><a href="#">Contactanos</a></li>
-                        <li><a href="#">Quienes Somos</a></li>
+                        <li><a href="Vista/Catalogo.php">Catalogo</a></li>
+                        <li><a href="Vista/Contactanos.php">Contactanos</a></li>
+                        <li><a href="Vista/Quienessomos.php">Quienes Somos</a></li>
                         <li><a href="Vista/SesionRegistro.php">Registrate/Inicia Sesion</a></li>
                         <div class="search-box">
                             <input type="text" placeholder="¿Que estas buscando?">
@@ -41,3 +42,4 @@
             </div>
         </div>
     </header>
+    

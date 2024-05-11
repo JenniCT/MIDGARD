@@ -1,6 +1,5 @@
 <?php
 
-session_start(); // Iniciar la sesión
 require_once("../Modelo/DatosUsuarioM.php");
 
 class UsuarioController {
@@ -38,8 +37,31 @@ class UsuarioController {
     
         return $datosUsuario;
     }
+    public static function actualizarTipo() {
+        $config = require __DIR__ . '/../config.php';
+        $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
+
+        if ($conexion->connect_error) {
+            die("Error en la conexión: " . $conexion->connect_error);
+        }
+
+        $correo = $_SESSION['correo'];
+        $usuarioModelo = new Usuario($conexion);
+        $tipo = '';
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tipo'])) {
+            $tipo = $_POST['tipo'];
+            $usuarioModelo->actualizarTipo($correo, $tipo);
+        }
+
+        return $tipo;
+    }
+    
+    
     
 }
+
+UsuarioController::actualizarTipo();
 
 $datosUsuario = UsuarioController::actualizarDatos();
 

@@ -1,3 +1,3 @@
 <?php
-require('Vista/index.php');
+    include 'Vista/index.php';
 ?>

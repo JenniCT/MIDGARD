@@ -31,7 +31,7 @@ class SesionController {
                 if ($idUsuario) {
                     // Guardar el idUsuario en la sesión
                     $_SESSION['idUsuario'] = $idUsuario;
-                    header("Location: ../Vista/Miinfo.php");
+                    header("Location: ../Vista/index_online.php");
                     exit();
                 } else {
                     // No se pudo obtener el idUsuario

@@ -1,43 +1,20 @@
+<?php
+    include "../Modelo/verificacionTipoImg.php";
+    include '../Controlador/DatosUsuarioC.php';
+?>
 <!DOCTYPE html>
 <html lang="es-Mex">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Vista/css/Contenido.css">
+    <link rel="stylesheet" href="../Vista/css/Info.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
     <title>Mi informacion</title>
 </head>
 <body>
-    <?php
-        include '../Controlador/DatosUsuarioC.php';
-    ?>
-
-    <!-- Aquí ya iniciaste la sesión, no es necesario iniciarla de nuevo -->
-    <div class="lateral">
-    <p>Hola, <?php echo isset($datosUsuario['idUsuario']) ? $datosUsuario['idUsuario'] : ''; ?> </p>
-        <div class="fotoperf">
-            <?php if (!empty($imagen_base64)): ?>
-                <img src="data:imagen/jpeg;base64,<?php echo $imagen_base64; ?>" alt="Imagen de perfil">
-            <?php else: ?>
-                <img src="img/user-image.png" alt="Yo poni mi imagen aki">
-            <?php endif; ?>
-        </div> 
-        <!-- Agregar nombre del usuario y su foto de perfil-->
-        <div class="acc">
-            <ul>
-
-                <li><a href="subircasa.php">Quiero vender  <i class="fa-solid fa-tag"></i> </a> </li>
-                <li><a href="Propiedades.php">Mis Propiedades  <i class="fa-solid fa-house"></i></a></li>
-                <li><a href="misventas.html">Mis Ventas  <i class="fa-solid fa-wallet"></i></a></li>
-                <li><a href="Miinfo.php">Mi Informacion  <i class="fa-solid fa-user"></i> </a></li>
-                <li><a href="../Modelo/Cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
-                
-            </ul>
-        </div>
-    </div>
-    <!-- Parte de adentro donde esta el formulario-->
+    
     <div class="Adentro">
-        <div class="container">
+        <div class="contenido">
             <h2>Mi informacion</h2>
             
             <form action="../Controlador/DatosUsuarioC.php" method="post" enctype="multipart/form-data">
@@ -48,7 +25,6 @@
                                 <label for="foto">Foto:</label>
                                 <input type="file" id="foto" name="foto" accept="image/*" onchange="mostrarVistaPrevia(this)">
                                 <div id="imagenPreviaContainer">
-                                <img id="imagenPrevia" src="#" alt="Vista previa de la imagen">
                             </div>
 
                             <div class="mb-3">
@@ -78,13 +54,6 @@
                             <div class="mb-3">
                                 <label for="fchNacimiento" class="form-label">Fecha de Nacimiento</label>
                                 <input type="date" class="form-control" id="FchNacimiento" name="FchNacimiento" value="<?php echo $datosUsuario['FchNacimiento']; ?>">
-                            </div>
-
-                            <div class="input-box mb-3">
-                                <select name="tipo" required>
-                                    <option value="1">Vendedor</option>
-                                    <option value="2" selected>Comprador</option>
-                                </select>
                             </div>
                             <button type="submit" class="btn btn-dark">Actualizar</button>
                         </div>

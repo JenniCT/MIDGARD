@@ -47,7 +47,7 @@ class Usuario{
         // Ejecutar la consulta
         if ($this->conexion->query($sql) === TRUE) {
             echo "Los cambios se han actualizado correctamente.";
-            header("Location: ../Vista/Miinfo.php");
+            header("Location: ../Vista/Usuario/Miinfo.php");
             exit;
         } else {
             echo "Error al actualizar los datos: " . $this->conexion->error;
@@ -55,6 +55,14 @@ class Usuario{
 
         // Cerrar la conexión
         $this->conexion->close();
+    }
+    public function actualizarTipo($correo, $tipo) {
+        $sql = "UPDATE Usuario SET tipo=? WHERE Correo=?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param('ss', $tipo, $correo);
+        $stmt->execute();
+        header("Location: ../Vista/SesionRegistro.php");
+        exit;
     }
 }
 ?>
