@@ -34,12 +34,13 @@ $resultado_tipo = $conexion->query($sql_tipo);
 if ($resultado_imagen && $resultado_imagen->num_rows > 0) {
     // Obtener la fila de resultado para la imagen
     $fila_imagen = $resultado_imagen->fetch_assoc();
-    // Obtener la imagen en formato BLOB y convertirla a base64
+    // Obtener la imagen en formato BLOB
     $imagen_blob = $fila_imagen['imagen'];
+    // Verificar si la imagen está presente antes de codificarla en base64
     if ($imagen_blob !== null) {
         $imagen_base64 = base64_encode($imagen_blob);
     } else {
-        $imagen_base64 = ""; // Si la imagen es nula, asignar una cadena vacía
+        $imagen_base64 = ""; // Si no se encuentra la imagen, asignar una cadena vacía
     }
 } else {
     $imagen_base64 = ""; // Si no se encuentra la imagen, asignar una cadena vacía
@@ -55,11 +56,8 @@ if ($resultado_tipo && $resultado_tipo->num_rows > 0) {
     // Comparar el tipo de usuario y redirigir según corresponda
     if ($tipo_usuario == 1) {
         include '../Vista/layout/headerV.php';
-    } else if ($tipo_usuario == 2){
+    } else {
         include '../Vista/layout/headerC.php';
-    } 
-    else {
-        include '../Vista/layout/headerA.php';
     }
 } else {
     // Si no se encontró ningún usuario con el correo proporcionado, redirigir a la página de inicio de sesión

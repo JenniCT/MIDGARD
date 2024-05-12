@@ -1,7 +1,14 @@
 <?php
+
     include '../Vista/layout/header.php';
 ?>
-
+    <section class="section head">
+        <div class="header-text">
+            <p>Haciendo Sueños Realidad</p>
+            <h1>Bienvenido a<span> Midgard</span><br>Inmoviliarias</h1>
+        </div>
+    </section>
+    
 <div class="containercasa">
             <section class="grid_cards">
                 <article class="card_ui">

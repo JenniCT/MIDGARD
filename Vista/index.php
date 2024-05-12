@@ -1,8 +1,8 @@
 <?php
-    include 'Vista/layout/header.php';
+    include '../Vista/layout/header.php';
 ?>
 </style>
-    <section class="section head">
+    <section  class='section head'>
         <div class="header-text">
             <p>Haciendo Sueños Realidad</p>
             <h1>Bienvenido a<span> Midgard</span><br>Inmoviliarias</h1>

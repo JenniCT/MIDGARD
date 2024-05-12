@@ -1,4 +1,5 @@
 <?php
+
 include '../Vista/layout/header.php';
 ?>
 
@@ -47,7 +48,9 @@ include '../Vista/layout/header.php';
                             <li><span>2014</span><br>Curso de Valuación de Propiedades</li>
                         </ul>
                     </div>
+                    
                 </div>
+            
             </div>
         </div>
     </div>

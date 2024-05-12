@@ -47,7 +47,7 @@ class Usuario{
         // Ejecutar la consulta
         if ($this->conexion->query($sql) === TRUE) {
             echo "Los cambios se han actualizado correctamente.";
-            header("Location: ../Vista/Usuario/Miinfo.php");
+            header("Location: ../Vista/Miinfo.php");
             exit;
         } else {
             echo "Error al actualizar los datos: " . $this->conexion->error;

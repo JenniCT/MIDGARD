@@ -11,6 +11,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+
 /*****Barra de navegación*****/
 
 .container{
@@ -26,7 +27,7 @@ header{
     
 }
 .content{
-    background-image: url(../img/fondo3.jpg);
+    background-image: url('../img/fondo3.jpg');
     /* background-color: rgba(0, 0, 0, 0.5); */
     background-repeat: no-repeat;
     min-height: 80px;
@@ -208,7 +209,7 @@ header{
 /*****Boton de busqueda*****/
 .search-box{
     display: flex;
-    
+    justify-content: center;
     background-color: transparent;
     padding: 1%;
     border-radius: 32px;

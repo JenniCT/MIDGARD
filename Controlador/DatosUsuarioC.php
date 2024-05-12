@@ -1,5 +1,6 @@
 <?php
 
+session_start(); // Iniciar la sesión
 require_once("../Modelo/DatosUsuarioM.php");
 
 class UsuarioController {
