@@ -62,8 +62,12 @@
     <?php
             include '../Controlador/DatosUsuarioC.php';
             
+<<<<<<< Updated upstream
             include "../Modelo/adminconsulta.php";
             include "../Modelo/verificacionTipoImg.php";
+=======
+            include "../Modelo/sudoconsulta.php";
+>>>>>>> Stashed changes
     ?>
     
     <div id="prop" class="contenido">
@@ -104,8 +108,8 @@
                                             echo "<td>" . $row['Disponibilidad'] . "</td>";
                                             echo "<td>" . $row['IdComentarios'] . "</td>";
                                             echo "<td>" . $row['FechaRegistro'] . "</td>";
-                                            echo "<td><a href='../vista/sudoModificar.php?id=" . $row['id'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
-                                            echo "<td><a href='../vista/sudoEliminar.php?id=" . $row['id'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
+                                            echo "<td><a href='../vista/sudoModificar.php?tabla=Propiedades&id=" . $row['IdPropiedad'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
+                                            echo "<td><a href='../vista/sudoEliminar.php?tabla=Propiedades&id=" . $row['IdPropiedad'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
                                             echo "</tr>";
                                         }
                                         echo "</tbody>";
@@ -156,8 +160,8 @@
                                             echo "<td>" . $row['FchaVencimiento'] . "</td>";
                                             echo "<td>" . $row['Estado'] . "</td>";
                                             echo "<td>" . $row['MetodoPago'] . "</td>";
-                                            echo "<td><a href='../vista/sudoModificar.php?id=" . $row['IdFactura'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
-                                            echo "<td><a href='../vista/sudoEliminar.php?id=" . $row['idFactura'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
+                                            echo "<td><a href='../vista/sudoModificar.php?tabla=Factura&id=" . $row['IdFactura'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
+                                            echo "<td><a href='../vista/sudoEliminar.php?tabla=Factura&id=" . $row['IdFactura'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
                                             echo "</tr>";
                                         }
                                         echo "</tbody>";
@@ -219,8 +223,8 @@
                                             echo "<td>" . $row['FechaRegistro'] . "</td>";
                                             echo "<td><img src='data:imagen/jpeg;base64," . base64_encode($row['imagen']) . "' alt='Imagen'></td>";
                                             echo "<td>" . $row['numero'] . "</td>";
-                                            echo "<td><a href='../vista/sudoModificar.php?id=" . $row['idUsuario'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
-                                            echo "<td><a href='../vista/sudoEliminar.php?id=" . $row['idUsuario'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
+                                            echo "<td><a href='../vista/sudoModificar.php?tabla=Usuario&id=" . $row['idUsuario'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
+                                            echo "<td><a href='../vista/sudoEliminar.php?tabla=Usuario&id=" . $row['idUsuario'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
                                             echo "</tr>";
                                             $num++;
                                         }
@@ -239,13 +243,13 @@
 </body>
 <script>
         function mostrarContenido(idContenido) {
-            var contenidos = document.querySelectorAll('.contenido'); // Obtener todos los elementos con clase 'contenido'
+            var contenidos = document.querySelectorAll('.contenido');
             contenidos.forEach(function(contenido) {
-                contenido.style.display = 'none'; // Ocultar todos los contenidos
+                contenido.style.display = 'none';
             });
-            var contenidoMostrar = document.getElementById(idContenido); // Obtener el contenido a mostrar
+            var contenidoMostrar = document.getElementById(idContenido);
             if (contenidoMostrar) {
-                contenidoMostrar.style.display = 'block'; // Mostrar el contenido correspondiente al botón presionado
+                contenidoMostrar.style.display = 'block';
             }
         }
     </script>
