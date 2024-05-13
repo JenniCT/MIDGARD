@@ -1,10 +1,8 @@
 <?php
-    include '../Vista/layout/header.php';
+include "../Modelo/verificacionTipoImg.php";
+    
 ?>
-
-
 <?php
-    // Llamar a la función reflejarPropiedades() para obtener todas las imágenes
     include '../Modelo/PropiedadesM.php';
     $propiedades = Propiedad::catalogoPropiedades();
 ?>

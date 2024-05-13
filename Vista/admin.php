@@ -63,26 +63,9 @@
             include '../Controlador/DatosUsuarioC.php';
             
             include "../Modelo/adminconsulta.php";
+            include "../Modelo/verificacionTipoImg.php";
     ?>
-    <div class="lateral">
-        <p>Hola, <?php echo isset($datosUsuario['idUsuario']) ? $datosUsuario['idUsuario'] : ''; ?></p>
-        <div class="fotoperf">
-            <?php if (!empty($imagen_base64)): ?>
-                <img src="data:imagen/jpeg;base64,<?php echo $imagen_base64; ?>" alt="Imagen de perfil">
-            <?php else: ?>
-                <img src="img/user-image.png" alt="Imagen no cargada">
-            <?php endif; ?>
-        </div>
-        
-        <div class="acc">
-            <ul>
-                <li onclick="mostrarContenido('prop')">Propiedades <i class="fa-solid fa-house"></i></li>
-                <li onclick="mostrarContenido('facturas')">Facturas <i class="fa-solid fa-wallet"></i></li>
-                <li onclick="mostrarContenido('usuarios')">Usuarios <i class="fa-solid fa-user"></i></li>
-                <li><a href="../Modelo/Cerrarsesion.php">Cerrar Sesion  <i class="fa-solid fa-arrow-right"></i></a></li>
-            </ul>
-        </div>
-    </div>
+    
     <div id="prop" class="contenido">
     <div class="Adentro">
         <div class="portafolio">

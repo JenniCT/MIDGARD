@@ -31,9 +31,9 @@
                     <ul>
                         
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="#">Propiedades</a></li>
-                        <li><a href="#">Usuarios</a></li>
-                        <li><a href="#">Ventas</a></li>
+                        <li onclick="mostrarContenido('prop')">Propiedades <i class="fa-solid fa-house"></i></li>
+                        <li onclick="mostrarContenido('facturas')">Facturas <i class="fa-solid fa-wallet"></i></li>
+                        <li onclick="mostrarContenido('usuarios')">Usuarios <i class="fa-solid fa-user"></i></li>
                         <li>
                             <div class="user-info">
                                 <div class="fotoperf">
@@ -66,4 +66,16 @@
 
             </div>
         </div>
+        <script>
+        function mostrarContenido(idContenido) {
+            var contenidos = document.querySelectorAll('.contenido'); // Obtener todos los elementos con clase 'contenido'
+            contenidos.forEach(function(contenido) {
+                contenido.style.display = 'none'; // Ocultar todos los contenidos
+            });
+            var contenidoMostrar = document.getElementById(idContenido); // Obtener el contenido a mostrar
+            if (contenidoMostrar) {
+                contenidoMostrar.style.display = 'block'; // Mostrar el contenido correspondiente al botón presionado
+            }
+        }
+    </script>
     </header>

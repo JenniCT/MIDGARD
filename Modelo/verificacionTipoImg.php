@@ -56,8 +56,11 @@ if ($resultado_tipo && $resultado_tipo->num_rows > 0) {
     // Comparar el tipo de usuario y redirigir según corresponda
     if ($tipo_usuario == 1) {
         include '../Vista/layout/headerV.php';
-    } else {
+    } elseif ($tipo_usuario == 2) {
         include '../Vista/layout/headerC.php';
+    }
+    else{
+        include '../Vista/layout/headerA.php';
     }
 } else {
     // Si no se encontró ningún usuario con el correo proporcionado, redirigir a la página de inicio de sesión

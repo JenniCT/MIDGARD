@@ -30,7 +30,7 @@
                     <ul>
                         
                         <li><a href="../Vista/index_online.php">Inicio</a></li>
-                        <li><a href="#">Catalago</a></li>
+                        <li><a href="Catalogo.php">Catalago</a></li>
                         <li><a href="#">Compras</a></li>
                         <li><a href="#">Reservas</a></li>
                         <li>
