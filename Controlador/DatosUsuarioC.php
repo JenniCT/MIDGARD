@@ -1,6 +1,5 @@
 <?php
 
-session_start(); // Iniciar la sesión
 require_once("../Modelo/DatosUsuarioM.php");
 
 class UsuarioController {
@@ -39,6 +38,11 @@ class UsuarioController {
         return $datosUsuario;
     }
     public static function actualizarTipo() {
+        
+        // Iniciar la sesión si no está iniciada
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $config = require __DIR__ . '/../config.php';
         $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
 
@@ -56,6 +60,7 @@ class UsuarioController {
         }
 
         return $tipo;
+        
     }
     
     

@@ -1,17 +1,90 @@
 * {
-    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 
 }
 
 body{
     font-family: 'Poppins', sans-serif;
-
 }
 
-.Propiedades {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-top: 90px;
+
+.propiedades {
+    margin-left: 10%;
     display: flex;
     justify-content: center;
+    margin-top: 90px;
+    background-color: rgb(0, 0, 0,0.3);
+    width: 80%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+.propiedades #titulo{
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    height: 80px;
+}
+
+
+/********Formulario**********/
+.Adentro {
+    padding: 5%;
+    margin: 150px 20%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
+.contenido {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+h2 {
+    text-align: center;
+    color: #333333;
+}
+.form-control {
+    margin-bottom: 15px;
+}
+
+.mb-3, .col-md-6{
+    padding: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #333333;
+}
+.btn-dark {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-dark:hover {
+    background-color: #555555;
+}
+.submit {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .2s
+}
+
+#imagenPrevia {
+    width: 400px;
 }

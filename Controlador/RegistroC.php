@@ -37,7 +37,7 @@ class RegistroController {
                 
                 // Redireccionar según el mensaje del registro
                 if ($mensaje === "Usuario agregado correctamente.") {
-                    session_start();
+                    
                     // Guardamos el correo del usuario en la sesión
                     $_SESSION['correo'] = $correo;
                     

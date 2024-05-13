@@ -12,10 +12,13 @@
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="Propiedades">
-        <h1>Mis Propiedades</h1>
+    <section>
+        <div class="propiedades">
+            <h1 id="titulo">Mis Propiedades</h1>
+            
+        </div>
         
-    </div>
+    </section>
     
 </body>
 </html>

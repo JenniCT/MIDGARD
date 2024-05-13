@@ -16,7 +16,7 @@ body{
 }
 
 section{
-    flex: 1; /* La sección ocupará el espacio restante */
+     flex: 1;/* La sección ocupará el espacio restante */
     display: flex;
     padding: 10px; /* Ajusta el relleno según sea necesario */
     background-image: url(../img/fondo3.jpg);
@@ -323,40 +323,6 @@ width: 100%;
     display: block;
 }
 
-/* Cartas Catalogo */
-.containercasa {
-    max-width: 1399px;
-    margin: auto;
-}
-
-.grid_cards {
-    display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.card_ui {
-    background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    transition: .3s ease;
-}
-
-.card_ui:hover {
-    box-shadow: 0px 0px 30px rgb(0 0 0 / 10%);
-    transform: translateY(-10px);
-}
-
-.car_header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-.car_header_status {
-    display: flex;
-    gap: 10px;
-}
 
 .status_rating {
     border: 2px solid #f1f1f1;
@@ -372,14 +338,6 @@ width: 100%;
     color: #7f8388;
 }
 
-.status_disponibility {
-    border-radius: 10px;
-    padding: 5px 12px;
-}
-
-.status_available {
-    background: rgb(15 167 35 / 10%);
-}
 
 .status_not_available {
     background: rgb(201 11 11 / 10%);
@@ -423,70 +381,22 @@ width: 100%;
     }
 }
 
-.car_body_img_container {
-    padding: 32px 0px;
-}
-
 .car_img_content_link:hover img {
     filter: drop-shadow(0px 10px 60px rgb(0 0 0 / 30%));
 }
 
-.car_img_content {
-    display: flex;
-    justify-content: center;
-}
 
 .car_img_content img {
     width: 80%;
     transition: .3s ease;
 }
 
-.car_name {
-    color: #7f8388;
-}
 
-.car_model_link:hover .car_model {
-    color: #c90b0b;
-}
-
-.car_model {
-    font-size: 1.2rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.car_price_container,
-.car_list_characteristics li {
-    align-items: center;
-    display: flex;
-    gap: 10px;
-}
-
-.car_price_container {
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.car_price {
-    white-space: nowrap;
-}
 
 .car_price_time {
     color: #7f8388;
 }
 
-.car_footer {
-    border-top: 2px solid rgb(162 166 171 / 20%);
-    margin-top: 16px;
-    padding-top: 16px;
-}
-
-.car_list_characteristics {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
-}
 
 .car_list_characteristics li {
     list-style: none;
@@ -505,14 +415,7 @@ width: 100%;
         height: auto;
     }
 
-    .grid_cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+
 }
 
-@media (max-width: 767px) {
-    .grid_cards {
-        grid-template-columns: 1fr;
-    }
-}
 

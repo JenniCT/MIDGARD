@@ -1,7 +1,6 @@
 <?php
     include '../Vista/layout/header.php';
 ?>
-</style>
     <section  class='section head'>
         <div class="header-text">
             <p>Haciendo Sueños Realidad</p>

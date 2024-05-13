@@ -1,64 +1,79 @@
 <?php
-
     include '../Vista/layout/header.php';
 ?>
-    <section class="section head">
+
+
+<?php
+    // Llamar a la función reflejarPropiedades() para obtener todas las imágenes
+    include '../Modelo/PropiedadesM.php';
+    $propiedades = Propiedad::catalogoPropiedades();
+?>
+<section  class='section head'>
         <div class="header-text">
             <p>Haciendo Sueños Realidad</p>
             <h1>Bienvenido a<span> Midgard</span><br>Inmoviliarias</h1>
         </div>
-    </section>
-    
+</section>
 <div class="containercasa">
-            <section class="grid_cards">
-                <article class="card_ui">
-                    <div class="car_header">
-                        <div class="car_header_status">
-                            <div class="status_disponibility status_available">
-                                <span>Disponible</span> 
-                            </div>
-                        </div>
+    <div class="grid_cards">
+        <?php 
+            foreach ($propiedades as $propiedad): 
+                // Acceder a los datos de la propiedad
+                $Estado = $propiedad['Estado'];
+                $nombre = $propiedad['IdPropiedad'];
+                $Banos = $propiedad ['NoBanos'];
+                $Precio = $propiedad ['Precio'];
+                $vendedor = $propiedad ['IdVendedor'];
+        ?>
+        <article class="card_ui">
+            <div class="car_header">
+                <div class="car_header_status">
+                    <div class="status_disponibility status_available">
+                        <span>Disponible</span> 
                     </div>
-                    <div class="car_body">
-                        <div class="car_body_img_container">
-                            <a href="../Vista/SesionRegistro.php" class="car_img_content_link">
-                                <figure class="car_img_content">
-                                    <img src="../Vista/img/fondo1.jpg" alt="Ford Focus"> <!-- Poner aqui foto de la casa -->
-                                </figure>
-                            </a>
-                        </div>
-                        <div>
-                            <p class="car_name">Colonia de la casa </p>
-                            <div class="car_price_container">
-                                <a href="#" class="car_model_link">
-                                    <h2 class="car_model" title="FOCUS">Nombre de la casa</h2>
-                                </a>
-                                <p class="car_price">$500.00</p> <!-- Precio de la casa -->
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="car_body">
+                <div class="car_body_img_container">
+                    <a href="../Vista/SesionRegistro.php" class="car_img_content_link">
+                        <figure class="car_img_content">
+                            <img src="data:imagen/jpeg;base64,<?php echo $propiedad['imagen_base64']; ?>" alt="Imagen de perfil"> <!-- Poner aqui foto de la casa -->
+                        </figure>
+                    </a>
+                </div>
+                <div>
+                    <p class="car_name">Estado: <?php echo $Estado; ?> </p>
+                    <div class="car_price_container">
+                        <a href="#" class="car_model_link">
+                            <h2 class="car_model" title="FOCUS"><?php echo $nombre; ?></h2>
+                        </a>
+                        <p class="car_price">$<?php echo $Precio; ?></p> <!-- Precio de la casa -->
                     </div>
-                    <div class="car_footer">
-                        <ul class="car_list_characteristics">
-                            <li>
-                                <i class="fas fa-sliders-h"></i>
-                                <span title="Manual">Baños Poner aqui</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span title="Kilometraje ilimitado">Habitaciones Poner aqui</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-user"></i>
-                                <span title="5">Matros Cuadrados Poner aqui</span>
-                            </li>
-                        </ul>
-                    </div>
-                </article>
-            </section>
-        </div>
+                </div>
+            </div>
+            <div class="car_footer">
+                <ul class="car_list_characteristics">
+                    <li>
+                        <i class="fas fa-sliders-h"></i>
+                        <span title="Manual">Baños <?php echo $Banos; ?></span>
+                    </li>
+                    <li>
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span title="Kilometraje ilimitado">Habitaciones Poner aqui</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-user"></i>
+                        <span title="5"><?php echo $vendedor; ?></span>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <?php endforeach; ?>
+    </div>
+</div>
 
 <?php
-require('../Vista/layout/footer.php');
+    require('../Vista/layout/footer.php');
 ?>
 
 </body>

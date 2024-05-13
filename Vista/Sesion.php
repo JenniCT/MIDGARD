@@ -16,6 +16,9 @@
                 <input type="password" id="contraseña" name="contrasenaL" class="input-field form-control" required>
                 <i class='bx bx-lock-alt icon'></i>
             </div>
+            <div class="forget-pass">
+                <a href="#">Forgot Password</a>
+            </div>
             <div class="input-box text-center mb-3">
                 <button type="submit" class="input-submit btn btn-primary btn-block">
                     <span>Acceder</span>

@@ -25,6 +25,8 @@
                                 <label for="foto">Foto:</label>
                                 <input type="file" id="foto" name="foto" accept="image/*" onchange="mostrarVistaPrevia(this)">
                                 <div id="imagenPreviaContainer">
+                                    <img id="imagenPrevia" src="#" alt="Vista previa de la imagen">
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -62,6 +64,19 @@
             </form>
         </div>
     </div>
+    <script>
+        function mostrarVistaPrevia(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+    
+                reader.onload = function(e) {
+                    document.getElementById('imagenPrevia').setAttribute('src', e.target.result);
+                }
+    
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
     <script src="js/mostrarVistaPrevia.js"></script>
 </body>
 </html>

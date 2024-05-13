@@ -33,6 +33,7 @@
                         <li><a href="../Vista/Propiedades.php">Propiedades</a></li>
                         <li><a href="#">Ventas</a></li>
                         <li><a href="#">Reservas</a></li>
+                        <li><a href="../Vista/subircasa.php">Subir casa</a></li>
                         <li>
                             <div class="user-info">
                                 <div class="fotoperf">
