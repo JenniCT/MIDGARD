@@ -33,7 +33,7 @@ include "../Modelo/verificacionTipoImg.php";
             </div>
             <div class="car_body">
                 <div class="car_body_img_container">
-                    <a href="" class="car_img_content_link">
+                    <a href="../Vista/casain.php" class="car_img_content_link">
                         <figure class="car_img_content">
                         <img src="data:image/jpeg;base64,<?php echo $propiedad['imagen_base64']; ?>" alt="Imagen de perfil">
 
