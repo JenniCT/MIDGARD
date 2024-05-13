@@ -56,22 +56,25 @@
             border: 1px solid #aaa;
             border-radius: 5px;
         }
+        .nombredetabla{
+            color: black;
+        }
     </style>
 </head>
 <body>
     <?php
             include '../Controlador/DatosUsuarioC.php';
             
-            include "../Modelo/verificacionTipoImg.php";
+            include '../Vista/layout/headerA.php';
             include "../Modelo/sudoconsulta.php";
     ?>
-    
+    <br><br>
     <div id="prop" class="contenido">
     <div class="Adentro">
         <div class="portafolio">
             <div class="container">
                 <div class="propiedades">
-                    <h1>Propiedades</h1><br>
+                    <h1 class="nombredetabla">Propiedades</h1><br>
                     <main class="table">
                         <div class="table-container">
                             <section class="table__body">
@@ -201,6 +204,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                        error_reporting(E_ALL ^ E_DEPRECATED); //Mousekeherramienta para evitar los avisos de deprecación
                                         $num = 1;
                                         $resultado = consulta("Usuario");
                                         echo "<tbody>";
@@ -217,9 +221,13 @@
                                             echo "<td>" . $row['Telefono'] . "</td>";
                                             echo "<td>" . $row['FchNacimiento'] . "</td>";
                                             echo "<td>" . $row['FechaRegistro'] . "</td>";
-                                            echo "<td><img src='data:imagen/jpeg;base64," . base64_encode($row['imagen']) . "' alt='Imagen'></td>";
+                                            if ($row['imagen'] !== null) { //Para ver si la imagen es nula o no
+                                                echo "<td><img src='data:imagen/jpeg;base64," . base64_encode($row['imagen']) . "' alt='Imagen'></td>";
+                                            } else {
+                                                echo "<td>No disponible</td>";
+                                            }
                                             echo "<td>" . $row['numero'] . "</td>";
-                                            echo "<td><a href='../vista/sudoModificar.php?tabla=Usuario&id=" . $row['idUsuario'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
+                                            echo "<td><a href='../vista/sudoModificarU.php?id=" . $row['idUsuario'] . "' class='btn btn-warning btn-modificar'>Modificar</a></td>";
                                             echo "<td><a href='../vista/sudoEliminar.php?tabla=Usuario&id=" . $row['idUsuario'] . "' class='btn btn-danger btn-eliminar'>Eliminar</a></td>";
                                             echo "</tr>";
                                             $num++;

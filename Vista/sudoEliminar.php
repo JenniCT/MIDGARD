@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["tabla"]) && isset($_GET[
     <div>
         <main>
             <section>
-                <h1 class="titulo-pagina">Eliminar Alumno</h1>
+                <h1 class="titulo-pagina">Eliminar registro</h1>
             </section>
             <section>
                 <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">

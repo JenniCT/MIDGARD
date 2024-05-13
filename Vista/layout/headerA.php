@@ -31,6 +31,7 @@
                     <ul>
                         
                         <li><a href="../Vista/index_online.php">Inicio</a></li>
+                        <li><a href="../Vista/admin.php">Panel</a></li>
                         <li onclick="mostrarContenido('prop')">Propiedades <i class="fa-solid fa-house"></i></li>
                         <li onclick="mostrarContenido('facturas')">Facturas <i class="fa-solid fa-wallet"></i></li>
                         <li onclick="mostrarContenido('usuarios')">Usuarios <i class="fa-solid fa-user"></i></li>
