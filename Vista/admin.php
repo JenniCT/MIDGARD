@@ -62,12 +62,8 @@
     <?php
             include '../Controlador/DatosUsuarioC.php';
             
-<<<<<<< Updated upstream
-            include "../Modelo/adminconsulta.php";
             include "../Modelo/verificacionTipoImg.php";
-=======
             include "../Modelo/sudoconsulta.php";
->>>>>>> Stashed changes
     ?>
     
     <div id="prop" class="contenido">
