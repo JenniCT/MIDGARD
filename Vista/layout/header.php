@@ -26,7 +26,7 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="Catalogo.php">Catalogo</a></li>
+                        <li><a href="../Vista/Catalogo.php">Catalogo</a></li>
                         <li><a href="Contactanos.php">Contactanos</a></li>
                         <li><a href="QuienesSomos.php">Quienes Somos</a></li>
                         <li><a href="SesionRegistro.php">Registrate/Inicia Sesion</a></li>

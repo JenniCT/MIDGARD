@@ -55,6 +55,7 @@
                     <option value="" selected disabled>Contrato</option>
                     <option value="Renta">Renta</option>
                     <option value="Venta">Venta</option>
+                    <option value="Reservar">Reservar</option>
                 </select>
                 <br> <br>
                 <label for="Precio">Precio:</label>

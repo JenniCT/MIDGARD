@@ -29,7 +29,6 @@ include "../Modelo/verificacionTipoImg.php";
 
                 </div>
                 <div>
-
                     <i class="fa-solid fa-city"></i>
                     <h2>Catalogo</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aliquam nam sit. Soluta quasi

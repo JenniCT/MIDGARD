@@ -1,9 +1,12 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Iniciar sesión solo si no está activa
+}
 
 // Verificar si se ha iniciado sesión
 if (!isset($_SESSION['correo'])) { 
-    header('Location: ../Vista/layout/header_offline.php');
+    header('Location: ../Vista/SesionRegistro.php');
     exit();
 }
 

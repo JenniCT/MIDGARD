@@ -14,7 +14,7 @@ include '../Controlador/DatosUsuarioC.php';
 <body>
 <?php
     include '../Controlador/PropiedadesC.php';
-    $propiedades = ControladorPropiedades::reflejarPropiedades();
+    $propiedades = ControladorPropiedades::Reservas();
 ?>
     <section>
     <div class="propiedades">

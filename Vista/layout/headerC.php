@@ -8,6 +8,7 @@
     <title>Midgard</title>
     <link rel="stylesheet" href="../Vista/css/style.css">
     <link rel="stylesheet" href="../Vista/css/index.css">
+    <link rel="stylesheet" href="../Vista/css/Catalogo.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>

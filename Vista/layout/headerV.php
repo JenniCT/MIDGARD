@@ -31,8 +31,8 @@
                         
                         <li><a href="../Vista/index_online.php">Inicio</a></li>
                         <li><a href="../Vista/Propiedades.php">Propiedades</a></li>
-                        <li><a href="#">Ventas</a></li>
-                        <li><a href="#">Reservas</a></li>
+                        <li><a href="../Vista/ventas.php">Ventas</a></li>
+                        <li><a href="../Vista/reservas.php">Reservas</a></li>
                         <li><a href="../Vista/subircasa.php">Subir casa</a></li>
                         <li>
                             <div class="user-info">

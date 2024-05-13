@@ -27,30 +27,30 @@ class Propiedad {
     }
 
     public static function catalogoPropiedades() {
-        $config = require __DIR__. '/../config.php';
-        $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
-    
-        $consulta = "SELECT imgPropiedad AS imagen_binaria, Estado, IdPropiedad, NoBanos, Precio, IdVendedor FROM Propiedades";
-    
-        $resultado = $conexion->query($consulta);
-    
-        $propiedades = array(); // Array para almacenar todas las propiedades
-    
-        if ($resultado && $resultado->num_rows > 0) {
-            // Iterar sobre cada fila de resultado para obtener las propiedades
-            while ($fila = $resultado->fetch_assoc()) {
-                // Convertir la imagen binaria a base64 y agregarla al array
-                $imagen_base64 = base64_encode($fila['imagen_binaria']);
-                $fila['imagen_base64'] = $imagen_base64;
-                // Eliminar la imagen binaria para evitar confusiones
-                unset($fila['imagen_binaria']);
-                $propiedades[] = $fila;
-            }
+    $config = require __DIR__. '/../config.php';
+    $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
+
+    $consulta = "SELECT imgPropiedad, Estado, IdPropiedad, NoBanos, Precio, IdVendedor, Disponibilidad FROM Propiedades WHERE Disponibilidad = 'Disponible'";
+
+    $resultado = $conexion->query($consulta);
+
+    $propiedades = array(); // Array para almacenar todas las propiedades
+
+    if ($resultado && $resultado->num_rows > 0) {
+        // Iterar sobre cada fila de resultado para obtener las propiedades
+        while ($fila = $resultado->fetch_assoc()) {
+            // Convertir la imagen binaria a base64 y agregarla al array
+            $imagen_base64 = base64_encode($fila['imgPropiedad']);
+            $fila['imagen_base64'] = $imagen_base64;
+            // Eliminar la imagen binaria para evitar confusiones
+            unset($fila['imgPropiedad']);
+            $propiedades[] = $fila;
         }
-    
-        return $propiedades;
     }
-    
+
+    return $propiedades;
+}
+
     
     
 
